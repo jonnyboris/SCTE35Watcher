@@ -1,0 +1,70 @@
+{
+    "name": "scte35",
+    "version": "0.4.0",
+    "description": "",
+    "main": "build/scte35.js",
+    "types": "build/scte35.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "bin": {
+        "scte35": "scripts/scte35"
+    },
+    "scripts": {
+        "beautify": "prettier --write \"**/*.{json,css,scss,yml,ts,js}\"",
+        "clean": "rimraf build",
+        "cover": "nyc npm test",
+        "docs": "typedoc --name 'SCTE35 JS' --out jsdoc ./src",
+        "lint": "eslint . --ext .ts",
+        "test": "mocha --require ts-node/register --watch-extensions ts,tsx __tests__/*.spec.ts",
+        "build": "npm run clean && tsc",
+        "postpublish": "npm run clean",
+        "prepublishOnly": "npm run build && npm run docs"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Comcast/scte35-js.git"
+    },
+    "author": "Comcast VIPER",
+    "keywords": [
+        "cli",
+        "scte35"
+    ],
+    "contributors": [
+        "Andrei Hetman <andrei.hetman@gmail.com",
+        "Eric Stobbart <no_email_provided@donotemail.com"
+    ],
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/Comcast/scte35-js/issues"
+    },
+    "homepage": "https://github.com/Comcast/scte35-js#readme",
+    "devDependencies": {
+        "@types/chai": "^4.2.18",
+        "@types/mocha": "^8.2.2",
+        "@typescript-eslint/eslint-plugin": "^4.24.0",
+        "@typescript-eslint/parser": "^4.24.0",
+        "chai": "^4.3.4",
+        "eslint": "^7.26.0",
+        "husky": "^6.0.0",
+        "mocha": "^8.4.0",
+        "nyc": "^15.1.0",
+        "prettier": "^2.3.0",
+        "rimraf": "^3.0.2",
+        "source-map-support": "^0.5.19",
+        "ts-node": "^9.1.1",
+        "typedoc": "^0.20.36",
+        "typescript": "^4.2.4"
+    },
+    "dependencies": {
+        "@types/node": "^15.3.0",
+        "arg": "^5.0.0",
+        "buffer": "^6.0.3",
+        "esm": "^3.2.25",
+        "inquirer": "^8.0.0"
+    }
+}
